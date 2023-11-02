@@ -1,0 +1,101 @@
+<html>
+<head>
+  <title>Used Item Selling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .item-list {
+      margin-top: 50px;
+    }
+
+    .item {
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .item h3 {
+      margin-top: 0;
+    }
+
+    .item p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Used Item Selling</h1>
+  <div class="container">
+    <form>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" required>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <div class="item-list">
+      <div class="item">
+        <h3>Item Title</h3>
+        <p>Description of the item</p>
+        <p>Price: $100</p>
+      </div>
+
+      <div class="item">
+        <h3>Another Item Title</h3>
+        <p>Description of another item</p>
+        <p>Price: $50</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

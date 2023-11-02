@@ -1,0 +1,46 @@
+/* Style for the custom table */
+.custom-table {
+    width: relative;
+    min-width: 70%;
+    margin-left:100px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+    
+  }
+  
+  /* Style for table header (th) */
+  .custom-table th {
+    background-color: black; /* Blue background color */
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style for table data (td) */
+  .custom-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  /* Alternating row colors for better readability */
+  .custom-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light gray background for odd rows */
+  }
+  
+  .black-button {
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+}
+
+/* Hover effect */
+.black-button:hover {
+    background-color: #333; /* Slightly darker black on hover */
+}
+  
+  
