@@ -39,6 +39,7 @@ if(mysqli_num_rows($result) <= 0)
     <a href="admin_orders.php"><h2 class="menu">Orders</h2></a>
     <a href="admin_Cart.php"><h2 class="menu">Cart</h2></a>
     <a href="contact.php"><h2 class="menu">Contact Us</h2></a>
+    <a href="logout.php"><button class="black-button-admin">Logout</button></a>
 
 </div>
      
@@ -54,18 +55,45 @@ if(mysqli_num_rows($result) <= 0)
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+
+
+<?php
+
+$sql=mysqli_query($conn,"SELECT * from register where type='customer'");
+if(mysqli_num_rows($sql) > 0)
+{
+    while($row = mysqli_fetch_assoc($sql))
+    {
+
+$sid=$row['uid'];
+$sname=$row['name'];
+$mob=$row['mobile'];
+$email=$row['email'];
+$password=$row['password'];
+$user=$row['username'];
+
+
+?>
+<form method="post" action="admin_view.php">
+<tbody>
             <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>123-456-7890</td>
-                <td>john.doe@example.com</td>
-                <td>*******</td>
-                <td>johndoe123</td>
-                <td>hai</td>
+                <td><?php echo $sid ?></td>
+                <td><?php echo $sname ?></td>
+                <td><?php echo $mob ?></td>
+                <td><?php echo $email ?></td>
+                <td><?php echo $password ?></td>
+                <td><?php echo $user ?></td>
+                <?php echo '<td><input type="hidden" name="button" value="' . $sid . '"><input type="submit" class="black-button" value="View"></td>' ?>;
             </tr>
-            <!-- Add more rows as needed -->
+        
         </tbody>
+    </form>
+    <?php
+    }
+}
+?>
+
+        
     </table>   
 
 </body>

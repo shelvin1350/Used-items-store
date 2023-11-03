@@ -82,7 +82,8 @@ $user=$row['username'];
                 <td><?php echo $email ?></td>
                 <td><?php echo $password ?></td>
                 <td><?php echo $user ?></td>
-                <td><button class="black-button">Click Me</button></td>
+                <?php echo '<td><input type="hidden" name="button" value="' . $sid . '"><input type="submit" class="black-button" value="View"></td>' ?>;
+                <td><button class="black-button" name="button" value="<?php $sid ?>" formaction="admin_view.php">view</button></td>
             </tr>
             <!-- Add more rows as needed -->
         </tbody>
