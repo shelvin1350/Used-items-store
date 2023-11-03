@@ -75,6 +75,7 @@ $user=$row['username'];
 
 ?>
 <tbody>
+    <form action="admin_seller_view.php" method="post">
             <tr>
                 <td><?php echo $sid ?></td>
                 <td><?php echo $sname ?></td>
@@ -82,10 +83,10 @@ $user=$row['username'];
                 <td><?php echo $email ?></td>
                 <td><?php echo $password ?></td>
                 <td><?php echo $user ?></td>
-                <?php echo '<td><input type="hidden" name="button" value="' . $sid . '"><input type="submit" class="black-button" value="View"></td>' ?>;
-                <td><button class="black-button" name="button" value="<?php $sid ?>" formaction="admin_view.php">view</button></td>
+                <?php echo '<td><input type="hidden" name="button" value="' . $sid . '"><input type="submit" class="black-button" value="View"></td>'; ?>
+                
             </tr>
-            <!-- Add more rows as needed -->
+    </form>            
         </tbody>
     <?php
     }
