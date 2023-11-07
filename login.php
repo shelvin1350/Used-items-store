@@ -28,14 +28,14 @@ if(isset($_POST['submit']))
 
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_array($result);
-           
+            $id= $row["uid"];
             $user_name = $row["username"];
             $password = $row['password'];
            
-
+            
             $sql2=mysqli_query($conn,"DELETE from login");
-            $stmt = mysqli_prepare($conn, "INSERT into login(username, password, type) values(?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "sss", $user_name, $password, $type);
+            $stmt = mysqli_prepare($conn, "INSERT into login(id, username, password, type) values(?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "isss", $id, $user_name, $password, $type);
             mysqli_stmt_execute($stmt);
             
             header("location:admin.php");  
@@ -58,14 +58,14 @@ if(isset($_POST['submit']))
 
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
-                $user_id = $row["lid"];
+                $user_id = $row["uid"];
                 $user_name = $row["username"];
                 $password = $row['password'];
                 $type = $row['type'];
 
                 $sql2=mysqli_query($conn,"DELETE from login");
-                $stmt = mysqli_prepare($conn, "INSERT into login(username, password, type) values(?, ?, ?)");
-                mysqli_stmt_bind_param($stmt, "sss", $user_name, $password, $type);
+                $stmt = mysqli_prepare($conn, "INSERT into login(id, username, password, type) values(?, ?, ?, ?)");
+                mysqli_stmt_bind_param($stmt, "isss", $user_id, $user_name, $password, $type);
                 mysqli_stmt_execute($stmt);
                 if($type=='seller')
                 {

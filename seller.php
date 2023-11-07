@@ -10,10 +10,7 @@
 
 <style>
 
-body {
-    background-color: #000;
-    color: #fff;
-}
+
 .form-container {
     max-width: 400px;
     margin: 0 auto;
@@ -49,7 +46,7 @@ input, select {
 }
 
 select {
-    width:650px;
+    width:62%;
 }
 
 button {
@@ -61,7 +58,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 300px;
-    margin-left: 200px;
+    margin-left: 140px;
 }
 
 button:hover {
@@ -76,33 +73,63 @@ button:hover {
 <?php
     include ("login_check.php");
 ?>
+
+
+
+
+       
+
+
 <img src="images/ss.png">
+
+<a href="seller.php"><h2 class="menu selected">Add product</h2></a>
+<a href="seller_product.php"><h2 class="menu">Products</h2></a>
+<a href="seller_orders.php"><h2 class="menu">Orders</h2></a>
+
+<a href="#"><h2 class="menu">Contact Us</h2></a>
+<?php
+
+include ("flag.php");
+
+       ?>
 
 
 <?php
-       if($flag==1){
-            ?>
-            
-            <a style="margin-left:630px;" href="logout.php"><input type="button" value="logout"></a>
-       
-            <?php
-        }
-        else{
-            ?>
-    
-            <a href="login.php"><input type="button" value="login"></a>
-            <?php
-        }
+
+
+if(isset($_POST['submit'])){
+
+   $pname=$_POST['product_name'];
+   $price=$_POST['product_price'];
+   $pimage=$_POST['img'];
+   $ptype=$_POST['product_type'];
+
+    $sql1=mysqli_query($conn,"select * from login");
+    $row1=mysqli_fetch_array($sql1);
+    $id=$row1['id'];
+   $sql=mysqli_query($conn,"INSERT into products(product_name, product_price, product_image, product_type, sid)values('$pname', '$price', '$pimage', '$ptype', $id)");
+   if($sql==true){
+    echo"<script type='text/javascript'>
+            alert 'Product added successfully'
+            </script>";
+   }
+   else{
+    echo"<script type='text/javascript'>
+            alert 'Failed'
+            </script>";
+   }
+}
 ?>
 
 </div>
-        <form>
+        <form method="post" action="">
             <label for="product_name">Product Name:</label>
             <input type="text" id="product_name" name="product_name" required>
             
             <label for="product_price">Product Price:</label>
             <input type="text" id="product_price" name="product_price" required>
-            
+            <label for="product_price">Product Image:</label>
+            <input type="file" name="img">
             <label for="product_type">Product Type:</label>
             <select id="product_type" name="product_type">
                 <option value="car">Car</option>
@@ -110,7 +137,7 @@ button:hover {
                 <option value="gadgets">Gadgets</option>
             </select>
             
-            <button type="submit">Submit</button>
+            <button type="submit" name="submit">Submit</button>
         </form>
 
 </body>

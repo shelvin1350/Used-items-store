@@ -27,15 +27,21 @@ if(mysqli_num_rows($result) <= 0)
     header ("location:login.php");
 }
 ?>
+<?php
 
+$sql=mysqli_query($conn,"SELECT * from register where type='seller'");
+$num=mysqli_num_rows($sql);
+$sql1=mysqli_query($conn,"SELECT * from register where type='customer'");
+$num1=mysqli_num_rows($sql1);
+?>
 
 <div class="nav-admin">
 
 
     <img src="images/ss.png">
 
-    <a href="admin.php"><h2 class="menu selected">Sellers</h2></a>
-    <a href="admin_customer.php"><h2 class="menu">Customers</h2></a>
+    <a href="admin.php"><h2 class="menu selected">Sellers(<?php echo $num ?>)</h2></a>
+    <a href="admin_customer.php"><h2 class="menu">Customers(<?php echo $num1 ?>)</h2></a>
     <a href="admin_orders.php"><h2 class="menu">Orders</h2></a>
     <a href="admin_Cart.php"><h2 class="menu">Cart</h2></a>
     <a href="contact.php"><h2 class="menu">Contact Us</h2></a>
@@ -56,11 +62,8 @@ if(mysqli_num_rows($result) <= 0)
             </tr>
         </thead>
 
-
 <?php
-
-$sql=mysqli_query($conn,"SELECT * from register where type='seller'");
-if(mysqli_num_rows($sql) > 0)
+        if($num > 0)
 {
     while($row = mysqli_fetch_assoc($sql))
     {

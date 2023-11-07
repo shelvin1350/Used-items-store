@@ -43,8 +43,8 @@
         
             
             <div class="category">
-               
-                <img src="images/laptopbg.jpg" >
+            <a href="gadget.php">
+                <img src="images/laptopbg.jpg" ></a>
                 <h3>Electronic gadgets</h3>
 
             </div>
